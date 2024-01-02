@@ -1,18 +1,14 @@
-# 面试官：JavaScript字符串的常用方法有哪些？
-
- ![](https://static.vue-js.com/ceb6ebc0-65c1-11eb-ab90-d9ae814b240d.png)
+# 字符串的常用方法
 
 ## 一、操作方法
-
-我们也可将字符串常用的操作方法归纳为增、删、改、查，需要知道字符串的特点是一旦创建了，就不可变
-
-
 
 ### 增
 
 这里增的意思并不是说直接增添内容，而是创建字符串的一个副本，再进行操作
 
 除了常用`+`以及`${}`进行字符串拼接之外，还可通过`concat`
+
+
 
 #### concat
 
@@ -36,6 +32,8 @@ console.log(stringValue); // "hello"
 - slice()
 - substr()
 - substring()
+
+#### slice()、substr()、substring()
 
 这三个方法都返回调用它们的字符串的一个子字符串，而且都接收一或两个参数。
 
@@ -67,7 +65,7 @@ console.log(stringValue.substr(3, 7)); // "lo worl"
 
 #### trim()、trimLeft()、trimRight()
 
-删除前、后或前后所有空格符，再返回新的字符串
+删除前、后或前后所有空格符，**再返回新的字符串**
 
 ```js
 let stringValue = " hello world ";
@@ -80,7 +78,7 @@ console.log(trimmedStringValue); // "hello world"
 
 #### repeat()
 
-接收一个整数参数，表示要将字符串复制多少次，然后返回拼接所有副本后的结果
+**接收一个整数参数**，表示要将字符串**复制多少次**，然后**返回拼接所有副本后的结果**
 
 ```js
 let stringValue = "na ";
@@ -91,7 +89,7 @@ let copyResult = stringValue.repeat(2) // na na
 
 #### padEnd()
 
-复制字符串，如果小于指定长度，则在相应一边填充字符，直至满足长度条件
+**复制字符串**，如果小于指定长度，则在相应一边填充字符，直至满足长度条件
 
 ```js
 let stringValue = "foo";
@@ -101,7 +99,7 @@ console.log(stringValue.padStart(9, ".")); // "......foo"
 
 
 
-### toLowerCase()、 toUpperCase()
+#### toLowerCase()、 toUpperCase()
 
 大小写转化
 
@@ -129,7 +127,7 @@ console.log(stringValue.toLowerCase()); // "hello world"
 
 #### charAt()
 
-返回给定索引位置的字符，由传给方法的整数参数指定
+**返回给定索引位置的字符**，由传给方法的整数参数指定
 
 ```js
 let message = "abcde";
@@ -140,18 +138,19 @@ console.log(message.charAt(2)); // "c"
 
 #### indexOf()
 
-从字符串开头去搜索传入的字符串，并返回位置（如果没找到，则返回 -1 ）
+从字符串开头去搜索传入的字符串，**并返回位置（如果没找到，则返回 -1 ）**
 
 ```js
 let stringValue = "hello world";
 console.log(stringValue.indexOf("o")); // 4
+console.log(stringValue.indexOf("z")); // -1
 ```
 
 
 
-#### startWith()、includes()
+#### startWith()
 
-从字符串中搜索传入的字符串，并返回一个表示是否包含的布尔值
+**以...开头**，从字符串中搜索传入的字符串，并**返回一个表示是否包含的布尔值**
 
 ```js
 let message = "foobarbaz";
@@ -163,13 +162,26 @@ console.log(message.includes("qux")); // false
 
 
 
+#### includes()
+
+从字符串中搜索传入的字符串，并**返回一个表示是否包含的布尔值**
+
+```js
+let message = "foobarbaz";
+console.log(message.includes("bar")); // true
+console.log(message.includes("bar")); // true
+console.log(message.includes("qux")); // false
+```
+
+
+
 
 
 ## 二、转换方法
 
-### split
+#### split
 
-把字符串按照指定的分割符，拆分成数组中的每一项
+把字符串按照**指定的分割符**，拆**分成数组中的每一项**
 
 ```js
 let str = "12+23+34"
@@ -188,7 +200,7 @@ let arr = str.split("+") // [12,23,34]
 
 
 
-### match()
+#### match()
 
 接收一个参数，可以是一个正则表达式字符串，也可以是一个` RegExp `对象，返回数组
 
@@ -201,7 +213,7 @@ console.log(matches[0]); // "cat"
 
 
 
-### search()
+#### search()
 
 接收一个参数，可以是一个正则表达式字符串，也可以是一个` RegExp `对象，找到则返回匹配索引，否则返回 -1
 
@@ -213,7 +225,7 @@ console.log(pos); // 1
 
 
 
-### replace()
+#### replace()
 
 接收两个参数，第一个参数为匹配的内容，第二个参数为替换的元素（可用函数）
 
